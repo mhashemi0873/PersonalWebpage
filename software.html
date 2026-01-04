@@ -270,72 +270,27 @@
                 Advanced Inference Methodologies
             </h3>
 
-            <style>
-                /* The Modal (background) */
-                .modal {
-                    display: none;
-                    position: fixed;
-                    z-index: 9999;
-                    padding-top: 50px;
-                    left: 0; top: 0;
-                    width: 100%; height: 100%;
-                    background-color: rgba(0,0,0,0.9);
-                }
-
-                /* Modal Content (Image) */
-                .modal-content {
-                    margin: auto;
-                    display: block;
-                    width: 90%;
-                    max-width: 1200px;
-                    animation: zoom 0.3s;
-                }
-
-                @keyframes zoom {
-                    from {transform:scale(0)}
-                    to {transform:scale(1)}
-                }
-
-                /* Close Button */
-                .close {
-                    position: absolute;
-                    top: 20px;
-                    right: 35px;
-                    color: #f1f1f1;
-                    font-size: 40px;
-                    font-weight: bold;
-                    cursor: pointer;
-                }
-
-                /* Show modal when targeted */
-                .modal:target {
-                    display: block;
-                }
-
-                .img-trigger {
-                    cursor: zoom-in;
-                    transition: 0.3s;
-                }
-
-                .img-trigger:hover {
-                    opacity: 0.8;
-                }
-            </style>
-
-            <div class="figure-container" style="text-align: center; background: #ffffff; padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color);">
-                <a href="#img-modal">
-                    <img src="images/BayesianMethods.png" class="img-trigger" style="width: 100%; max-width: 1000px; height: auto; border-radius: 8px;">
-                </a>
-                <p style="font-size: 0.8rem; color: #64748b; margin-top: 0px;">Click image to enlarge</p>
+            <div class="interactive-figure" onclick="openSlider('bayesianBox')">
+                <img src="images/BayesianMethods.png" style="width: 100%; max-width: 1000px; display: block; margin: auto;">
+                <div class="figure-hint-bar">🔍 Click to view Graph & Details</div>
             </div>
 
-            <div id="img-modal" class="modal">
-                <a href="#close" class="close">&times;</a>
-                <img class="modal-content" src="images/BayesianMethods.png">
-            </div>
+            <div id="bayesianBox" class="figure-slider-overlay">
+                <button class="figure-close-btn" onclick="closeSlider('bayesianBox')">✕</button>
+                <div class="figure-slider-wrapper">
+                    <div class="figure-slide" onclick="shiftSlide('bayesianBox', 1)">
+                        <img src="images/BayesianMethods_graph.png">
+                        <div class="figure-nav-instruction">Tap to read Text Description →</div>
+                    </div>
+                    <div class="figure-slide" onclick="shiftSlide('bayesianBox', 0)">
+                        <img src="images/BayesianMethods_text.png">
+                        <div class="figure-nav-instruction">← Tap to return to Graph</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="inference-description" style="padding: 0 1rem; margin-top: 0rem;">
+
+            <div class="inference-description" style="padding: 0 1rem; margin-top: 1rem;">
                 <ul style="list-style: none; padding: 0;">
                     <li style="margin-bottom: 1.8rem; display: flex; gap: 15px; align-items: flex-start;">
                         <span style="color: var(--accent-green); font-weight: bold; font-size: 1.2rem; line-height: 1.2;">•</span>
@@ -367,6 +322,7 @@
               <img src="images/Inference_challenges.png" style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto;">
 
             </div>
+
 
         </section>
 
@@ -534,7 +490,27 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
-</body>
+
+    <script>
+        function openSlider(id) {
+            document.getElementById(id).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSlider(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto';
+            const wrapper = document.querySelector(`#${id} .figure-slider-wrapper`);
+            wrapper.style.transform = 'translateX(0%)';
+        }
+
+        function shiftSlide(id, index) {
+            const wrapper = document.querySelector(`#${id} .figure-slider-wrapper`);
+            wrapper.style.transform = `translateX(-${index * 50}%)`;
+        }
+    </script>
+
+    </body>
 
 <script>
     function toggleSidebar() {
@@ -572,4 +548,5 @@
 </script>
 
 </body>
+
 </html>

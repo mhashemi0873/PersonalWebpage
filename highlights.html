@@ -621,6 +621,27 @@
                 window.scrollTo({top: 0, behavior: 'smooth'});
             }
         </script>
+
+        <script>
+            function openSlider(id) {
+                document.getElementById(id).style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeSlider(id) {
+                document.getElementById(id).style.display = 'none';
+                document.body.style.overflow = 'auto';
+                const wrapper = document.querySelector(`#${id} .figure-slider-wrapper`);
+                wrapper.style.transform = 'translateX(0%)';
+            }
+
+            function shiftSlide(id, index) {
+                const wrapper = document.querySelector(`#${id} .figure-slider-wrapper`);
+                wrapper.style.transform = `translateX(-${index * 50}%)`;
+            }
+        </script>
+
+
     </body>
 
     <script>

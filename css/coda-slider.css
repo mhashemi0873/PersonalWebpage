@@ -310,6 +310,78 @@ h4.subsection-title {
     p { font-size: 1.1rem; }  /* Added mobile font size */
 }
 
+/* --- Interactive Figure Styles --- */
+.interactive-figure {
+    position: relative;
+    cursor: pointer;
+    background: transparent !important; /* Removed white background */
+    border: none !important;            /* Removed blue/grey border */
+    border-radius: 0 !important;
+    overflow: hidden;
+    margin: 1.5rem 0;
+}
+
+.figure-hint-bar {
+    background: rgba(0, 0, 0, 0.05); /* Subtle grey instead of blue */
+    color: #334155;
+    padding: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Full-Screen Overlay */
+.figure-slider-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: white;
+    z-index: 10000;
+}
+
+.figure-slider-wrapper {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.figure-slide {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.figure-slide img {
+    max-width: 95%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.figure-nav-instruction {
+    margin-top: 20px;
+    color: #1e3a8a;
+    font-weight: 700;
+    background: #f1f5f9;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.figure-close-btn {
+    position: fixed;
+    top: 20px; right: 20px;
+    font-size: 32px;
+    border: none; background: #eee;
+    width: 45px; height: 45px; border-radius: 50%;
+    cursor: pointer; z-index: 10001;
+}
 
 /* --- SCROLL TO TOP BUTTON STYLE --- */
 #scrollTopBtn {
