@@ -623,6 +623,19 @@
         </script>
 
         <script>
+            function openSimpleZoom() {
+                document.getElementById('simpleZoomOverlay').style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevents scrolling behind the image
+            }
+
+            function closeSimpleZoom() {
+                document.getElementById('simpleZoomOverlay').style.display = 'none';
+                document.body.style.overflow = 'auto'; // Turns scrolling back on
+            }
+        </script>
+
+
+        <script>
             function openSlider(id) {
                 document.getElementById(id).style.display = 'block';
                 document.body.style.overflow = 'hidden';
@@ -640,6 +653,7 @@
                 wrapper.style.transform = `translateX(-${index * 50}%)`;
             }
         </script>
+
 
 
     </body>
