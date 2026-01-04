@@ -242,13 +242,13 @@
             </p>
 
             <ul class="causal-list" style="font-size: .8rem; line-height: 1.5; list-style: none; padding: 0.2; margin-top: 0rem; margin-bottom: 1rem; color: #334155;">
-                <li style="font-size: 1.1rem; margin-bottom: 0.8rem; padding-left: 15px; border-left: 3px solid #1e3a8a;">
+                <li style="font-size: 1.1rem; margin-bottom: 0.8rem; padding-left: 10px; border-left: 2px solid #1e3a8a;">
                    (i) Infer probability rather than single best-fit solution,
                 </li>
-                <li style="font-size: 1.1rem; margin-bottom: 0.8rem; padding-left: 15px; border-left: 3px solid #1e3a8a;">
+                <li style="font-size: 1.1rem; margin-bottom: 0.8rem; padding-left: 10px; border-left: 2px solid #1e3a8a;">
                     (ii) Compare competing mechanistic hypotheses, and
                 </li>
-                <li style="font-size: 1.1rem; margin-bottom: 0.5rem; padding-left: 15px; border-left: 3px solid #1e3a8a;">
+                <li style="font-size: 1.1rem; margin-bottom: 0.5rem; padding-left: 10px; border-left: 2px solid #1e3a8a;">
                     (iii) Identify what is stable across methods and models.
                 </li>
             </ul>
@@ -279,10 +279,29 @@
                 Virtual brain modelling has gained popularity in neuroscience due to its potential to enhance medical treatments and intervention strategies. This transformative approach combines patient-specific structural data with mathematical models to simulate spatiotemporal brain activity and its associated imaging recordings, such as magneto/electroencephalography (MEG/EEG), stereo EEG (SEEG), and fMRI. However, model inversion (finding the parameter set that best explains the data) at such large-scale presents formidable challenges due to non-trivial network effects, noise, and non-linearity. Previous studies relied on optimization algorithms (i.e., point estimation) that are limited to integrate the background knowledge (e.g., clinical expertise). Furthermore, statistical and geometrical dependencies, such as degeneracy, add another layer of complexity in revealing causality with associated uncertainty. This is crucial for validation, to ensure that model predictions are trustworthy.
             </p>
 
-            <div style="text-align: center; margin-top: 0rem;">
-                <img src="images/BayesianInference.png"
-                     alt="Bayesian Inference Diagram"
-                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto; border-radius: 8px; border: none;">
+
+
+
+            <div class="interactive-figure" onclick="openSlider('bayesianBox')" style="margin-top: -.25rem; background: transparent; border: none;">
+                <img src="images/BayesianInference.png" style="width: 100%; max-width: 1000px; display: block; margin: 0 auto 0 auto;">
+
+                <div class="figure-hint-bar" onclick="openSlider('bayesianBox')" style="cursor: pointer; margin-top: -5px; padding-top: 5px;">
+                    🔍 Click to view Graph & Details
+                </div>
+            </div>
+
+            <div id="bayesianBox" class="figure-slider-overlay">
+                <button class="figure-close-btn" onclick="closeSlider('bayesianBox')">✕</button>
+                <div class="figure-slider-wrapper">
+                    <div class="figure-slide" onclick="shiftSlide('bayesianBox', 1)">
+                        <img src="images/BayesianInference_graph.png">
+                        <div class="figure-nav-instruction">Tap to read Text Description →</div>
+                    </div>
+                    <div class="figure-slide" onclick="shiftSlide('bayesianBox', 0)">
+                        <img src="images/BayesianInference_txt.png">
+                        <div class="figure-nav-instruction">← Tap to return to Graph</div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -300,9 +319,26 @@
             Epilepsy surgery is a major intervention for drug-resistant epilepsy, yet decisions are based on limited electrode coverage and visual assessment by neurologists. A patient benefit from surgery only if the resected tissue truly contains the epileptogenic zone (EZ)—the region capable of initiating seizures. However, the EZ cannot be directly observed; it must be inferred from sparse SEEG recordings, patient history, and imaging. Critically, multiple EZ hypotheses can fit the same data.
             </p>
 
-            <div style="text-align: center; margin-top: 0rem;">
-                <img src="images/BVEP.png"
-                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto; border-radius: 8px; border: none;">
+            <div class="interactive-figure" onclick="openSlider('BVEPBox')" style="margin-top: -.25rem; background: transparent; border: none;">
+                <img src="images/BVEP.png" style="width: 100%; max-width: 1000px; display: block; margin: 0 auto 0 auto;">
+
+                <div class="figure-hint-bar" onclick="openSlider('BVEPBox')" style="cursor: pointer; margin-top: -5px; padding-top: 5px;">
+                    🔍 Click to view Graph & Details
+                </div>
+            </div>
+
+            <div id="BVEPBox" class="figure-slider-overlay">
+                <button class="figure-close-btn" onclick="closeSlider('BVEPBox')">✕</button>
+                <div class="figure-slider-wrapper">
+                    <div class="figure-slide" onclick="shiftSlide('BVEPBox', 1)">
+                        <img src="images/BVEP_graph.png">
+                        <div class="figure-nav-instruction">Tap to read Text Description →</div>
+                    </div>
+                    <div class="figure-slide" onclick="shiftSlide('BVEPBox', 0)">
+                        <img src="images/BVEP_txt.png">
+                        <div class="figure-nav-instruction">← Tap to return to Graph</div>
+                    </div>
+                </div>
             </div>
 
             <p style="margin-top: 1.5rem; font-size: 1rem; color: #64748b;">
@@ -329,9 +365,26 @@
              Baclofen, as a selective GABAB receptor agonist, has emerged as a promising drug for the treatment of Alcohol use disorder (AUD). However, the longitudinal inter-trial, and inter-individual variability in drug concentration in patients with AUD is unknown. We developed a hierarchical Bayesian workflow to estimate the parameters of a pharmacodynamic/pharmacokinetic (PD/PK) population model from Baclofen administration. The retrospective clinical data were already collected at Sainte Marguerite Hospital in Marseille by <a href="https://scholar.google.fr/citations?user=eFcbGBUAAAAJ&hl=en" target="_blank" style="color:blue; font-weight: 500; text-decoration: underline;">N. Simon</a>, and the work was co-led with  <a href="https://scholar.google.com/citations?user=0ZVdLpMAAAAJ&hl=en" target="_blank" style="color:blue; font-weight: 500; text-decoration: underline;">V. Jirsa</a> at INS, Aix-Marseille University.
             </p>
 
-            <div style="text-align: center; margin-top: 0rem;">
-                <img src="images/AUC.png"
-                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto; border-radius: 8px; border: none;">
+            <div class="interactive-figure" onclick="openSlider('AUCBox')" style="margin-top: -.25rem; background: transparent; border: none;">
+                <img src="images/AUC.png" style="width: 100%; max-width: 1000px; display: block; margin: 0 auto 0 auto;">
+
+                <div class="figure-hint-bar" onclick="openSlider('AUCBox')" style="cursor: pointer; margin-top: -5px; padding-top: 5px;">
+                    🔍 Click to view Graph & Details
+                </div>
+            </div>
+
+            <div id="AUCBox" class="figure-slider-overlay">
+                <button class="figure-close-btn" onclick="closeSlider('AUCBox')">✕</button>
+                <div class="figure-slider-wrapper">
+                    <div class="figure-slide" onclick="shiftSlide('AUCBox', 1)">
+                        <img src="images/AUC_graph.png">
+                        <div class="figure-nav-instruction">Tap to read Text Description →</div>
+                    </div>
+                    <div class="figure-slide" onclick="shiftSlide('AUCBox', 0)">
+                        <img src="images/AUC_txt.png">
+                        <div class="figure-nav-instruction">← Tap to return to Graph</div>
+                    </div>
+                </div>
             </div>
 
             <p style="margin-top: 1.5rem; font-size: 1rem; color: #64748b;">
@@ -359,9 +412,26 @@
              <a href="https://scholar.google.com/citations?user=rmsueR0AAAAJ&hl=en" target="_blank" style="color:blue; font-weight: 500; text-decoration: underline;">A. Ziaee</a>, and the work was co-led with  <a href="https://scholar.google.com/citations?user=0ZVdLpMAAAAJ&hl=en" target="_blank" style="color:blue; font-weight: 500; text-decoration: underline;">V. Jirsa</a> used in multiple international collaborations, demonstrating its generality and robustness.
             </p>
 
-            <div style="text-align: center; margin-top: 0rem;">
-                <img src="images/VBI.png"
-                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto; border-radius: 8px; border: none;">
+            <div class="interactive-figure" onclick="openSlider('VBIBox')" style="margin-top: -.25rem; background: transparent; border: none;">
+                <img src="images/VBI.png" style="width: 100%; max-width: 1000px; display: block; margin: 0 auto 0 auto;">
+
+                <div class="figure-hint-bar" onclick="openSlider('VBIBox')" style="cursor: pointer; margin-top: -5px; padding-top: 5px;">
+                    🔍 Click to view Graph & Details
+                </div>
+            </div>
+
+            <div id="VBIBox" class="figure-slider-overlay">
+                <button class="figure-close-btn" onclick="closeSlider('VBIBox')">✕</button>
+                <div class="figure-slider-wrapper">
+                    <div class="figure-slide" onclick="shiftSlide('VBIBox', 1)">
+                        <img src="images/VBI_graph.png">
+                        <div class="figure-nav-instruction">Tap to read Text Description →</div>
+                    </div>
+                    <div class="figure-slide" onclick="shiftSlide('VBIBox', 0)">
+                        <img src="images/VBI_txt.png">
+                        <div class="figure-nav-instruction">← Tap to return to Graph</div>
+                    </div>
+                </div>
             </div>
 
             <br>
@@ -426,9 +496,27 @@
       <a href="https://orcid.org/0000-0001-7245-6224" target="_blank" style="color:blue; font-weight: 500; text-decoration: underline;">A. Esmaeili</a> funded by Marie Skłodowska-Curie Actions.
             </p>
 
-            <div style="text-align: center; margin-top: 0rem;">
-                <img src="images/ProbabaliticAcrossScales.png"
-                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto; border-radius: 8px; border: none;">
+
+            <div class="interactive-figure" onclick="openSlider('PACBox')" style="margin-top: -.25rem; background: transparent; border: none;">
+                <img src="images/PAC.png" style="width: 100%; max-width: 1000px; display: block; margin: 0 auto 0 auto;">
+
+                <div class="figure-hint-bar" onclick="openSlider('PACBox')" style="cursor: pointer; margin-top: -5px; padding-top: 5px;">
+                    🔍 Click to view Graph & Details
+                </div>
+            </div>
+
+            <div id="PACBox" class="figure-slider-overlay">
+                <button class="figure-close-btn" onclick="closeSlider('PACBox')">✕</button>
+                <div class="figure-slider-wrapper">
+                    <div class="figure-slide" onclick="shiftSlide('PACBox', 1)">
+                        <img src="images/PAC_graph.png">
+                        <div class="figure-nav-instruction">Tap to read Text Description →</div>
+                    </div>
+                    <div class="figure-slide" onclick="shiftSlide('PACBox', 0)">
+                        <img src="images/PAC_txt.png">
+                        <div class="figure-nav-instruction">← Tap to return to Graph</div>
+                    </div>
+                </div>
             </div>
 
             <p style="margin-top: 1.5rem; font-size: 1rem; color: #64748b;">
@@ -454,10 +542,29 @@
            <a href="https://scholar.google.nl/citations?user=T1k8qBsAAAAJ&hl=en" target="_blank" style="color:blue; font-weight: 500; text-decoration: underline;">P. Sorrentino</a>.
             </p>
 
-            <div style="text-align: center; margin-top: 0rem;">
-                <img src="images/VBMS.png"
-                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto; border-radius: 8px; border: none;">
+
+            <div class="interactive-figure" onclick="openSlider('VBMSBox')" style="margin-top: -.25rem; background: transparent; border: none;">
+                <img src="images/VBMS.png" style="width: 100%; max-width: 1000px; display: block; margin: 0 auto 0 auto;">
+
+                <div class="figure-hint-bar" onclick="openSlider('VBMSBox')" style="cursor: pointer; margin-top: -5px; padding-top: 5px;">
+                    🔍 Click to view Graph & Details
+                </div>
             </div>
+
+            <div id="VBMSBox" class="figure-slider-overlay">
+                <button class="figure-close-btn" onclick="closeSlider('VBMSBox')">✕</button>
+                <div class="figure-slider-wrapper">
+                    <div class="figure-slide" onclick="shiftSlide('VBMSBox', 1)">
+                        <img src="images/VBMS_graph.png">
+                        <div class="figure-nav-instruction">Tap to read Text Description →</div>
+                    </div>
+                    <div class="figure-slide" onclick="shiftSlide('VBMSBox', 0)">
+                        <img src="images/VBMS_txt.png">
+                        <div class="figure-nav-instruction">← Tap to return to Graph</div>
+                    </div>
+                </div>
+            </div>
+
 
             <p style="margin-top: 1.5rem; font-size: 1rem; color: #64748b;">
                     Main ref:<br>
@@ -509,9 +616,28 @@
             These studies led to the development of  <a href="https://www.ebrains.eu/news-and-events/personalised-virtual-brain-twins" target="_blank" style="color:blue; font-weight: 500; text-decoration: underline;">Virtual Brain Twins</a>—digital replicas of individual brains designed to assist decision-making in diagnostics, prognosis, and therapy. Recently, we summarized these advances in a detailed review paper, covering the conceptual, mathematical, technical, and clinical aspects. We described the stages of their construction—from anatomical coupling and modeling to simulation and inference—and demonstrated case studies in resting state and neurological disorders.
             </p>
 
-            <div style="text-align: center; margin-top: 0rem;">
-                <img src="images/VBTs.png"
-                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto; border-radius: 8px; border: none;">
+
+
+            <div class="interactive-figure" onclick="openSlider('VBTsBox')" style="margin-top: -.25rem; background: transparent; border: none;">
+                <img src="images/VBTs.png" style="width: 100%; max-width: 1000px; display: block; margin: 0 auto 0 auto;">
+
+                <div class="figure-hint-bar" onclick="openSlider('VBTsBox')" style="cursor: pointer; margin-top: -5px; padding-top: 5px;">
+                    🔍 Click to view Graph & Details
+                </div>
+            </div>
+
+            <div id="VBTsBox" class="figure-slider-overlay">
+                <button class="figure-close-btn" onclick="closeSlider('VBTsBox')">✕</button>
+                <div class="figure-slider-wrapper">
+                    <div class="figure-slide" onclick="shiftSlide('VBTsBox', 1)">
+                        <img src="images/VBTs_graph.png">
+                        <div class="figure-nav-instruction">Tap to read Text Description →</div>
+                    </div>
+                    <div class="figure-slide" onclick="shiftSlide('VBTsBox', 0)">
+                        <img src="images/VBTs_txt.png">
+                        <div class="figure-nav-instruction">← Tap to return to Graph</div>
+                    </div>
+                </div>
             </div>
 
             <p style="margin-top: 1.5rem; font-size: 1rem; color: #64748b;">
@@ -524,14 +650,15 @@
             <div class="highlight-card" style="
             background-color: #fffaf0;
             border: 1px solid #fed7aa;
-            border-left: 5px solid #f97316;
-            border-radius: 8px;
+            border-left: 1px solid #f97316;
+            border-radius: 5px;
             /* ADJUST THESE FOR SPACE TO TOP AND BOTTOM INSIDE BOX */
             padding-top: 2rem;
             padding-bottom: 2rem;
             padding-left: 2rem;
             padding-right: 2rem;
             margin: 2rem 0;">
+
 
             <p style="margin: 0; font-size: 1.2rem; line-height: 1.8; color: #334155; text-align: justify;">
            This work integrates <strong>Bayesian inference</strong> with advanced computational models to enhance clinical <strong> decision-making</strong> for a range of brain conditions. By combining heterogenous data and inference algorithms, this approach provides <strong>causal/mechanistic</strong> insights into brain (dys)function, improving prediction accuracy and potentially therapeutic strategies.
@@ -553,9 +680,22 @@
               Our hypothesis was that consciousness transitions involve a phase transition in neural dynamics, characterized by a sharp drop in population firing rate, visible in EEG recordings. Testing this required mechanistic modeling and efficient parameter estimation that bridges molecular-to-systems levels while remaining computationally tractable.
             </p>
 
-            <div style="text-align: center; margin-top: 0rem;">
+
+
+
+            <div class="figure-container" style="text-align: center; margin: 1.5rem 0;">
                 <img src="images/TCMethods.png"
-                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto; border-radius: 8px; border: none;">
+                     onclick="openSimpleZoom('TCZoom')"
+                     style="width: 100%; max-width: 1000px; cursor: zoom-in;">
+
+                <div onclick="openSimpleZoom('TCZoom')" style="cursor: pointer; font-size: 0.8rem; color: #64748b;">
+                     🔍 Click image to enlarge
+                </div>
+            </div>
+
+            <div id="TCZoom" onclick="closeSimpleZoom('TCZoom')" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.98); z-index: 10000; cursor: zoom-out; align-items: center; justify-content: center;">
+                <button style="position: fixed; top: 20px; right: 20px; font-size: 30px; border: none; background: #eee; width: 50px; height: 50px; border-radius: 50%; cursor: pointer;">✕</button>
+                <img src="images/TCMethods.png" style="max-width: 100%; max-height: 90vh;">
             </div>
 
 
@@ -563,16 +703,54 @@
             Taking this apprach;
             </p>
 
-            <div style="text-align: center; margin-top: 0rem;">
-                <img src="images/Anesthesia_Res1.png"
-                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto; border-radius: 8px; border: none;">
+
+
+            <div class="interactive-figure" onclick="openSlider('Ar1Box')" style="margin-top: -.25rem; background: transparent; border: none;">
+                <img src="images/Anesthesia_Res1.png" style="width: 100%; max-width: 1000px; display: block; margin: 0 auto 0 auto;">
+
+                <div class="figure-hint-bar" onclick="openSlider('Ar1Box')" style="cursor: pointer; margin-top: -5px; padding-top: 5px;">
+                    🔍 Click to view Graph & Details
+                </div>
+            </div>
+
+            <div id="Ar1Box" class="figure-slider-overlay">
+                <button class="figure-close-btn" onclick="closeSlider('Ar1Box')">✕</button>
+                <div class="figure-slider-wrapper">
+                    <div class="figure-slide" onclick="shiftSlide('Ar1Box', 1)">
+                        <img src="images/Anesthesia_Res1_graph.png">
+                        <div class="figure-nav-instruction">Tap to read Text Description →</div>
+                    </div>
+                    <div class="figure-slide" onclick="shiftSlide('Ar1Box', 0)">
+                        <img src="images/Anesthesia_Res1_txt.png">
+                        <div class="figure-nav-instruction">← Tap to return to Graph</div>
+                    </div>
+                </div>
             </div>
 
 
-            <div style="text-align: center; margin-top: 0rem;">
-                <img src="images/Anesthesia_Res2.png"
-                     style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0px auto; border-radius: 8px; border: none;">
+
+            <div class="interactive-figure" onclick="openSlider('Ar2Box')" style="margin-top: -.25rem; background: transparent; border: none;">
+                <img src="images/Anesthesia_Res2.png" style="width: 100%; max-width: 1000px; display: block; margin: 0 auto 0 auto;">
+
+                <div class="figure-hint-bar" onclick="openSlider('Ar2Box')" style="cursor: pointer; margin-top: -5px; padding-top: 5px;">
+                    🔍 Click to view Graph & Details
+                </div>
             </div>
+
+            <div id="Ar2Box" class="figure-slider-overlay">
+                <button class="figure-close-btn" onclick="closeSlider('Ar2Box')">✕</button>
+                <div class="figure-slider-wrapper">
+                    <div class="figure-slide" onclick="shiftSlide('Ar2Box', 1)">
+                        <img src="images/Anesthesia_Res2_graph.png">
+                        <div class="figure-nav-instruction">Tap to read Text Description →</div>
+                    </div>
+                    <div class="figure-slide" onclick="shiftSlide('Ar2Box', 0)">
+                        <img src="images/Anesthesia_Res2_txt.png">
+                        <div class="figure-nav-instruction">← Tap to return to Graph</div>
+                    </div>
+                </div>
+            </div>
+
 
             <p style="margin-top: 1.5rem; font-size: 1rem; color: #64748b;">
                     Main refs:<br>
@@ -588,8 +766,8 @@
             <div class="highlight-card" style="
             background-color: #fffaf0;
             border: 1px solid #fed7aa;
-            border-left: 5px solid #f97316;
-            border-radius: 8px;
+            border-left: 1px solid #f97316;
+            border-radius: 5px;
             /* ADJUST THESE FOR SPACE TO TOP AND BOTTOM INSIDE BOX */
             padding-top: 2rem;
             padding-bottom: 2rem;
